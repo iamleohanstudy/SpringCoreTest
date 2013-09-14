@@ -5,7 +5,7 @@
 	<groupId>SpringCoreTest</groupId>
 	<artifactId>SpringCoreTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>SpringCoreTest</name>
 	<url>http://maven.apache.org</url>
@@ -39,6 +39,7 @@
 			<version>3.2.4.RELEASE</version>
 		</dependency>
 
+		<!-- TODO: (POM) HQL EMBEDDED DATABASE -->
 		<dependency>
 			<groupId>hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -48,13 +49,25 @@
 
 	<build>
 		<plugins>
+
+			<!-- TODO: (POM) compiler plugin to accept jdk 1.7 with maven -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
 
+			<!-- TODO: (POM) setup the jetty test server plugin and setup the context root -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<configuration>
+					<webApp>
+						<contextPath>/han</contextPath>
+					</webApp>
 				</configuration>
 			</plugin>
 		</plugins>
